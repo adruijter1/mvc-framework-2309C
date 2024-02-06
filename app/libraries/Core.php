@@ -27,9 +27,9 @@
                  * Wanneer er niets achter de vhost-naam wordt gezet
                  * dan wordt het onderstaande array in $url gezet
                  */
-                $url = array('homepages', 'index');
+                $url = array('Homepages', 'index');
             }
-            var_dump($url);
+            // var_dump($url);
 
             /**
              * Check of de controller bestaat

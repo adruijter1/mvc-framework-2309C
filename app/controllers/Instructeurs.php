@@ -4,8 +4,8 @@ class Instructeurs
 {
 
 
-    public function index()
+    public function index($firstname = NULL, $infix = NULL, $lastname = NULL)
     {
-        echo "Hallo";
+        echo "Hallo " . $firstname . " " . $infix . " " . $lastname;
     }
 }
