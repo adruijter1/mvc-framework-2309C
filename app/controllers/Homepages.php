@@ -1,13 +1,14 @@
 <?php
 
-class Homepages
+class Homepages extends BaseController
 {
 
     public function index()
     {
-        echo "Homepage";
-        // Maak een hyperlink van deze plek naar de Instructeurs/index method
+        $data = [
+            'title' => 'Homepage'
+        ];
 
-        echo '<a href="Instructeurs/index">Naar instructeurspagina</a>';
+        $this->view('homepages/index', $data);
     }
 }
