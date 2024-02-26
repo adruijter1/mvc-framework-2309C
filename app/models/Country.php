@@ -21,6 +21,8 @@ class Country
 
         $this->db->query($sql);
 
+        return $this->db->resultSet();
+
         
     }
 }

@@ -34,4 +34,15 @@ class Database
     {
         $this->statement = $this->dbHandler->prepare($sql);
     }
+
+    public function execute()
+    {
+        return $this->statement->execute();
+    }
+
+    public function resultSet()
+    {
+        $this->execute();
+        return $this->statement->fetchAll(PDO::FETCH_OBJ);
+    }
 }
