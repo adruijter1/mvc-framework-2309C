@@ -1,9 +1,6 @@
 <?php require APPROOT . '/views/includes/header.php'; ?>
 
-<?php
-echo "Hallo " . $data['firstname'] . " " . $data['infix'] . " " . $data['lastname'];
-
-?>
+<h3><?= $data['title']; ?></h3>
 
 <br>
 <a href="<?= URLROOT; ?>/Homepages/index">Homepage</a>
