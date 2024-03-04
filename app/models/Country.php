@@ -17,12 +17,13 @@ class Country
                       ,CapitalCity
                       ,Continent
                       ,Population
-                FROM  Country";
+                FROM  Country
+                                
+                ORDER BY Population DESC";
 
         $this->db->query($sql);
 
         return $this->db->resultSet();
-
         
     }
 }
