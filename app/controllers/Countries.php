@@ -49,4 +49,18 @@ class Countries extends BaseController
          */
         $this->view('countries/index', $data);
     }
+
+    /**
+     * Deze method gaat voor ons een nieuw record toevoegen aan de database
+     */
+    public function create()
+    {
+        
+        $data = [
+            'title' => 'Voeg een nieuw land toe',
+            'name' => 'Dit is een naam',
+        ];
+
+        $this->view('countries/create', $data);
+    }
 }
