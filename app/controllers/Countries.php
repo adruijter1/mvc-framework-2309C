@@ -55,6 +55,11 @@ class Countries extends BaseController
      */
     public function create()
     {
+        if ($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            var_dump($_POST);
+            exit();
+        }
         
         $data = [
             'title' => 'Voeg een nieuw land toe',
