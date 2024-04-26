@@ -45,4 +45,9 @@ class Database
         $this->execute();
         return $this->statement->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function bind($parameter, $value, $type = NULL)
+    {
+        $this->statement->bindValue($parameter, $value, $type);
+    }
 }

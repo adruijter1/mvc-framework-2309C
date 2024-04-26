@@ -56,9 +56,17 @@ class Countries extends BaseController
     public function create()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST")
-        {
-            var_dump($_POST);
-            exit();
+        {          
+            
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            $result = $this->countryModel->createCountry($_POST);
+
+            echo    "<div class='alert alert-success' role='alert'>
+                        Het inserten is gelukt!                
+                    </div>";
+            
+            header('Refresh:3; ' . URLROOT . '/countries/index');
         }
         
         $data = [

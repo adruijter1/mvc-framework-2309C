@@ -26,4 +26,37 @@ class Country
         return $this->db->resultSet();
         
     }
+
+    public function createCountry($post)
+    {
+        /**
+         * Maak een query om een nieuw land toe te voegen aan de database
+         */
+        $sql = "INSERT INTO Country   (  Name
+                                        ,CapitalCity
+                                        ,Continent
+                                        ,Population) 
+                VALUES                (  :name
+                                        ,:capitalCity
+                                        ,:continent
+                                        ,:population)";
+
+        /**
+         * Maak de query klaar voor het database-object
+         */
+        $this->db->query($sql);
+
+        /**
+         * Bind de waarden aan de query
+         */
+        $this->db->bind(':name', $post['countryInput'], PDO::PARAM_STR);
+        $this->db->bind(':capitalCity', $post['capitalCityInput'], PDO::PARAM_STR);
+        $this->db->bind(':continent', $post['continentInput'], PDO::PARAM_STR);
+        $this->db->bind(':population', $post['populationInput'], PDO::PARAM_INT);
+
+        /**
+         * Voer de query uit
+         */
+        $this->db->execute();
+    }
 }

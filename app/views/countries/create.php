@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
             <label for="populationInput" class="form-label">Aantal Inwoners:</label>
-            <input type="number" name="continentInput" class="form-control" id="populationInput" placeholder="Voer het aantal inwoners in...">
+            <input type="number" name="populationInput" class="form-control" id="populationInput" placeholder="Voer het aantal inwoners in...">
             </div>
 
             <button type="submit" class="btn btn-primary">Verstuur</button>
