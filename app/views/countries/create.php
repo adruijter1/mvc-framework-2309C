@@ -1,4 +1,4 @@
-<?php require_once 'C:/projects2023/MVC-Framework-2309C/app/views/includes/header.php'; ?>
+<?php require_once APPROOT . '/views/includes/header.php'; ?>
 
 <div class="container mt-3">
     <div class="row">
@@ -54,4 +54,4 @@
 
 
 
-<?php require_once 'C:/projects2023/MVC-Framework-2309C/app/views/includes/footer.php'; ?>
+<?php require_once APPROOT . '/views/includes/footer.php'; ?>
