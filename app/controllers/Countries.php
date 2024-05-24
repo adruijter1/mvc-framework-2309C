@@ -82,12 +82,27 @@ class Countries extends BaseController
         $this->view('countries/create', $data);
     }
 
-    public function update($countryId)
+    public function update($countryId = NULL)
     {
-        $result = $this->countryModel->updateCountry($countryId);
+        if ($_SERVER['REQUEST_METHOD'] == "POST")
+        {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            $result = $this->countryModel->updateCountry($_POST);
+
+            echo    "<div class='alert alert-success' role='alert'>
+                        Het updaten is gelukt!                
+                    </div>";
+            
+            header('Refresh:3; ' . URLROOT . '/countries/index');
+        }
+
+
+        $result = $this->countryModel->selectCountry($countryId);
 
         $data = [
             'title' => 'Wijzig record',
+            'Id' => $result->Id,
             'country' => $result->Name,
             'capitalCity' => $result->CapitalCity,
             'continent' => $result->Continent,

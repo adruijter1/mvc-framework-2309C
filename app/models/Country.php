@@ -61,7 +61,7 @@ class Country
     }
 
 
-    public function updateCountry($countryId)
+    public function selectCountry($countryId)
     {
         $sql = "SELECT Id
                       ,Name
@@ -77,5 +77,25 @@ class Country
         $this->db->bind(':id', $countryId, PDO::PARAM_INT);
 
         return $this->db->single();
+    }
+
+    public function updateCountry($post)
+    {
+        $sql = "UPDATE country 
+                SET    Name = :name
+                      ,CapitalCity = :capitalCity
+                      ,Continent = :continent
+                      ,Population = :population
+                WHERE  Id = :id";
+
+        $this->db->query($sql);
+
+        $this->db->bind(':name', $post['nameCountry'], PDO::PARAM_STR);
+        $this->db->bind(':capitalCity', $post['nameCapitalCity'], PDO::PARAM_STR);
+        $this->db->bind(':continent', $post['nameContinent'], PDO::PARAM_STR);
+        $this->db->bind(':population', $post['population'], PDO::PARAM_INT);
+        $this->db->bind(':id', $post['countryId'], PDO::PARAM_INT);
+
+        return $this->db->execute();
     }
 }
