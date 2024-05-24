@@ -59,4 +59,23 @@ class Country
          */
         $this->db->execute();
     }
+
+
+    public function updateCountry($countryId)
+    {
+        $sql = "SELECT Id
+                      ,Name
+                      ,CapitalCity
+                      ,Continent
+                      ,Population
+                FROM  Country
+                WHERE Id = :id";
+        
+
+        $this->db->query($sql);
+
+        $this->db->bind(':id', $countryId, PDO::PARAM_INT);
+
+        return $this->db->single();
+    }
 }

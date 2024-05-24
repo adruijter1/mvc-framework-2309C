@@ -32,7 +32,12 @@ class Countries extends BaseController
                             <td>$country->CapitalCity</td>
                             <td>$country->Continent</td>
                             <td>" . number_format($country->Population, 0, ',', '.') . "</td>
-                         </tr>";
+                            <td>
+                                <a href='" . URLROOT . "/countries/update/$country->Id'>
+                                    <i class='bi bi-pencil-square'></i>
+                                </a>
+                            </td>
+                        </tr>";
         }
 
         /**
@@ -75,5 +80,20 @@ class Countries extends BaseController
         ];
 
         $this->view('countries/create', $data);
+    }
+
+    public function update($countryId)
+    {
+        $result = $this->countryModel->updateCountry($countryId);
+
+        $data = [
+            'title' => 'Wijzig record',
+            'country' => $result->Name,
+            'capitalCity' => $result->CapitalCity,
+            'continent' => $result->Continent,
+            'population' => $result->Population
+        ];
+
+        $this->view("countries/update", $data);
     }
 }
