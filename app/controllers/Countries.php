@@ -36,6 +36,11 @@ class Countries extends BaseController
                                 <a href='" . URLROOT . "/countries/update/$country->Id'>
                                     <i class='bi bi-pencil-square'></i>
                                 </a>
+                            </td>                            
+                            <td>
+                                <a href='" . URLROOT . "/countries/delete/$country->Id'>
+                                    <i class='bi bi-trash'></i>
+                                </a>
                             </td>
                         </tr>";
         }
@@ -110,5 +115,18 @@ class Countries extends BaseController
         ];
 
         $this->view("countries/update", $data);
+    }
+
+    public function delete($countryId)
+    {
+        $result = $this->countryModel->deleteCountry($countryId);
+
+        $data = [
+            'message' => 'Het record is verwijderd!'
+        ];
+
+        header("Refresh:3; url=" . URLROOT . "/countries/index");  
+        
+        $this->view('countries/delete', $data);
     }
 }

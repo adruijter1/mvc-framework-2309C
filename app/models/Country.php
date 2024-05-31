@@ -98,4 +98,17 @@ class Country
 
         return $this->db->execute();
     }
+
+    public function deleteCountry($countryId)
+    {
+        $sql = "DELETE 
+                FROM Country
+                WHERE Id = :id";
+
+        $this->db->query($sql);
+
+        $this->db->bind(':id', $countryId, PDO::PARAM_INT);
+
+        return $this->db->execute();
+    }
 }

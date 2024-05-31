@@ -15,6 +15,7 @@
                     <th>Continent</th>
                     <th>Aantal Inwoners</th>
                     <th>Update</th>
+                    <th>Verwijder</th>
                 </thead>
                 <tbody>
                     <?= $data['dataRows']; ?>
