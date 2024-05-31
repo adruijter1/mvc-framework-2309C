@@ -125,8 +125,7 @@ class Countries extends BaseController
             'message' => 'Het record is verwijderd!'
         ];
 
-        header("Refresh:3; url=" . URLROOT . "/countries/index");  
-        
+        header("Refresh:3; url=" . URLROOT . "/countries/index");        
         $this->view('countries/delete', $data);
     }
 }
